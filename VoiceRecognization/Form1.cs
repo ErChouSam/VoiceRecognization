@@ -12,12 +12,14 @@ namespace VoiceRecognization
 {
     public partial class Nova : Form
     {
+        Master maitre;
         public Nova()
         {
+            maitre = new Master(this);
             InitializeComponent();
         }
 
-        private void Nova_Load(object sender, EventArgs e)
+        private void btEnable_Click(object sender, EventArgs e)
         {
 
         }

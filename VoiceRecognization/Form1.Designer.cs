@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             this.components = new System.ComponentModel.Container();
             this.btEnable = new System.Windows.Forms.Button();
             this.btDisable = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             this.btEnable.TabIndex = 0;
             this.btEnable.Text = "Enable Vocal";
             this.btEnable.UseVisualStyleBackColor = true;
+            this.btEnable.Click += new System.EventHandler(maitre.btnEnable_Click);
             // 
             // btDisable
             // 
@@ -52,6 +54,7 @@
             this.btDisable.TabIndex = 1;
             this.btDisable.Text = "Disable Vocal";
             this.btDisable.UseVisualStyleBackColor = true;
+            this.btDisable.Click += new System.EventHandler(maitre.btnDisable_Click);
             // 
             // rtbLog
             // 
@@ -72,7 +75,6 @@
             this.Controls.Add(this.btEnable);
             this.Name = "Nova";
             this.Text = "Nova";
-            this.Load += new System.EventHandler(this.Nova_Load);
             this.ResumeLayout(false);
 
         }

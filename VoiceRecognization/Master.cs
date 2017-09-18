@@ -18,7 +18,7 @@ namespace VoiceRecognization
         SpeechRecognitionEngine SREngineConfirm;
         SpeechRecognitionEngine SREngineStart;
         SpeechSynthesizer Synthesizer;
-        void Init(Nova obj)
+        public Master(Nova obj)
         {
             this.Nova = obj;
             CommandCode = 0;
@@ -28,6 +28,7 @@ namespace VoiceRecognization
             SREngineStart = new SpeechRecognitionEngine();
             Synthesizer = new SpeechSynthesizer();
             Synthesizer.SetOutputToDefaultAudioDevice();
+            Begin();
         }
 
 
@@ -115,13 +116,13 @@ namespace VoiceRecognization
             }
         }
 
-        private void btnEnable_Click(object sender, EventArgs e)
+        internal void btnEnable_Click(object sender, EventArgs e)
         {
             SREngineStart.RecognizeAsync(RecognizeMode.Multiple);
             this.Nova.btDisable.Enabled = true;
         }
 
-        private void btnDisable_Click(object sender, EventArgs e)
+        internal void btnDisable_Click(object sender, EventArgs e)
         {
             SREngineChoice.RecognizeAsyncCancel();
             SREngineStart.RecognizeAsyncCancel();
