@@ -5,20 +5,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Speech.Recognition;
 using System.Speech.Synthesis;
+using System.Windows.Forms;
 
 namespace VoiceRecognization
 {
-    class Choice
+    class Master
     {
-        int CommandCode = 0;
-        int retry = 0;
-        SpeechRecognitionEngine SREngineChoice = new SpeechRecognitionEngine();
-        SpeechRecognitionEngine SREngineConfirm = new SpeechRecognitionEngine();
-        SpeechRecognitionEngine SREngineStart = new SpeechRecognitionEngine();
-        SpeechSynthesizer Synthesizer = new SpeechSynthesizer();
-
-        private void init()
+        Nova Nova;
+        int CommandCode;
+        int retry;
+        SpeechRecognitionEngine SREngineChoice;
+        SpeechRecognitionEngine SREngineConfirm;
+        SpeechRecognitionEngine SREngineStart;
+        SpeechSynthesizer Synthesizer;
+        void Init(Nova obj)
         {
+            this.Nova = obj;
+            CommandCode = 0;
+            retry = 0;
+            SREngineChoice = new SpeechRecognitionEngine();
+            SREngineConfirm = new SpeechRecognitionEngine();
+            SREngineStart = new SpeechRecognitionEngine();
+            Synthesizer = new SpeechSynthesizer();
+            Synthesizer.SetOutputToDefaultAudioDevice();
+        }
+
+
+        private void Begin()
+        {
+           
             Choices choice = new Choices();
             Choices confirm = new Choices();
             Choices start = new Choices();
@@ -55,7 +70,7 @@ namespace VoiceRecognization
                     Synthesizer.SpeakAsync("En quoi puis-je vous aider?");
                     SREngineStart.RecognizeAsyncCancel();
                     SREngineChoice.RecognizeAsync(RecognizeMode.Multiple);
-                    TimeSet.Start();
+                    this.Nova.TimeSet.Start();
                     break;
             }
         }
@@ -92,7 +107,7 @@ namespace VoiceRecognization
                     SREngineConfirm.RecognizeAsync(RecognizeMode.Multiple);
                     break;
                 case "quelle est mon nom":
-                    rtbLog.Text += "\nSamy";
+                    this.Nova.rtbLog.Text += "\nSamy";
                     break;
                 default:
                     Synthesizer.SpeakAsync("Je n'ai pas compris votre demande");
@@ -103,7 +118,7 @@ namespace VoiceRecognization
         private void btnEnable_Click(object sender, EventArgs e)
         {
             SREngineStart.RecognizeAsync(RecognizeMode.Multiple);
-            btDisable.Enabled = true;
+            this.Nova.btDisable.Enabled = true;
         }
 
         private void btnDisable_Click(object sender, EventArgs e)
@@ -111,13 +126,13 @@ namespace VoiceRecognization
             SREngineChoice.RecognizeAsyncCancel();
             SREngineStart.RecognizeAsyncCancel();
             SREngineConfirm.RecognizeAsyncCancel();
-            btDisable.Enabled = false;
+            this.Nova.btDisable.Enabled = false;
         }
         private void TimerOut(object sender, EventArgs e)
         {
             if (retry == 2)
             {
-                TimeSet.Stop();
+                this.Nova.TimeSet.Stop();
                 SREngineChoice.RecognizeAsyncCancel();
                 SREngineStart.RecognizeAsyncCancel();
                 Synthesizer.SpeakAsync("Je n'ai pas compris votre demande, je me rendors.");

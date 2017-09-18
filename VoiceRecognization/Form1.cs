@@ -16,5 +16,10 @@ namespace VoiceRecognization
         {
             InitializeComponent();
         }
+
+        private void Nova_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

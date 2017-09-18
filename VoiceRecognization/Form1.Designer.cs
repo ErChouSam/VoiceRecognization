@@ -72,16 +72,16 @@
             this.Controls.Add(this.btEnable);
             this.Name = "Nova";
             this.Text = "Nova";
+            this.Load += new System.EventHandler(this.Nova_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btEnable;
-        private System.Windows.Forms.Button btDisable;
-        private System.Windows.Forms.RichTextBox rtbLog;
-        private System.Windows.Forms.Timer TimeSet;
+        internal System.Windows.Forms.Timer TimeSet;
+        internal System.Windows.Forms.Button btEnable;
+        internal System.Windows.Forms.Button btDisable;
+        internal System.Windows.Forms.RichTextBox rtbLog;
     }
 }
 
