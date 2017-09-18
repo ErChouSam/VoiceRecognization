@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceRecognization", "VoiceRecognization\VoiceRecognization.csproj", "{B3DBC080-625A-46B4-ABB1-68CB029ADD1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3DBC080-625A-46B4-ABB1-68CB029ADD1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3DBC080-625A-46B4-ABB1-68CB029ADD1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3DBC080-625A-46B4-ABB1-68CB029ADD1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3DBC080-625A-46B4-ABB1-68CB029ADD1D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F930A71-BFCE-401F-93DE-BC6695CCF026}
+	EndGlobalSection
+EndGlobal
